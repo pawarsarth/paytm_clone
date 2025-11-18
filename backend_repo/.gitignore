@@ -1,0 +1,78 @@
+# ———————— NODE MODULES ————————
+node_modules/
+**/node_modules/
+
+# ———————— ENV FILES ————————
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ———————— LOGS ————————
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# ———————— DIST / BUILD ————————
+dist/
+build/
+out/
+.next/
+.vercel/
+.netlify/
+coverage/
+
+# ———————— FRONTEND SPECIFIC ————————
+# Vite
+.vite/
+
+# React
+*.DS_Store
+
+# Next.js Cache
+.next/
+.next/cache/
+
+# Expo / React Native (if any)
+.expo/
+.expo-shared/
+
+# ———————— TYPESCRIPT ————————
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# ———————— BACKEND BUILD & CACHE ————————
+*.cache/
+.cache/
+tmp/
+temp/
+
+# ———————— EDITOR / IDE ————————
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+.idea/
+*.iml
+
+# ———————— SYSTEM FILES ————————
+.DS_Store
+Thumbs.db
+
+# ———————— OPTIONAL (REMOVE IF NEEDED) ————————
+# Ignore compiled JS in backend if using TS
+backend/**/*.js
+backend/**/*.js.map
+
+# Ignore uploads folder
+uploads/
+public/uploads/
+
+# Docker
+docker-data/
