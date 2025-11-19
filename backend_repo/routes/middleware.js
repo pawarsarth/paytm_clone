@@ -1,30 +1,22 @@
 import jwt from 'jsonwebtoken'
 import { JWT_SECRET } from '../config.js'
 
-function userMiddleware(req,res,next)
-{
-   try{
-     const token1 =req.headers['token']
+export const userMiddleware = (req, res, next) => {
+    const authHeader = req.headers["authorization"];
 
-    if(!token1)
-    {
-        return res.statuts(401).json({
-            message:"token missing"
-        })
-        
+    if (!authHeader) {
+        return res.status(403).json({ msg: "No token provided" });
     }
-     const token = token1.split(" ")[1];
-    const decodedData=jwt.verify(token,JWT_SECRET)
 
-        req.userId=decodedData.id
+    const token = authHeader.split(" ")[1]; // Remove "Bearer"
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        req.userId = decoded.userId;
         next();
-   }
-   catch(e)
-   {
-    res.json({
-        message:"toke error"
-    })
-   }
-}
+    } catch (error) {
+        return res.status(403).json({ msg: "Invalid token" });
+    }
+};
 
 export {userMiddleware}
