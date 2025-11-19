@@ -5,7 +5,7 @@ export const Appbar = () => {
         <div className="flex flex-col justify-center h-full ml-4">
             PayTM App
         </div>
-        <div className="flex">
+        <div className="flex m-10" >
             <div className="flex flex-col justify-center h-full mr-4">
                 Hello
             </div>
