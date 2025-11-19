@@ -8,6 +8,7 @@ const accountRouter=express.Router();
 
 
 accountRouter.get('/balance', userMiddleware, async (req, res) => {
+    
     const acc = await Account.findOne({ userId: req.userId });
 
     if (!acc) {
