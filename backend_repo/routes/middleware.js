@@ -1,17 +1,29 @@
-export const userMiddleware = (req, res, next) => {
-    const authHeader = req.headers["Authorization"];
+import jwt from 'jsonwebtoken'
+import { JWT_SECRET } from '../config.js'
 
-    if (!authHeader) {
-        return res.status(403).json({ msg: "No token provided" });
+function userMiddleware(req,res,next)
+{
+   try{
+     const token =req.headers['token']
+
+    if(!token)
+    {
+        return res.statuts(401).json({
+            message:"token missing"
+        })
+        
     }
+    const decodedData=jwt.verify(token,JWT_SECRET)
 
-    const token = authHeader.split(" ")[1]; // Remove "Bearer"
-
-    try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.userId = decoded.userId;
+        req.userId=decodedData.id
         next();
-    } catch (error) {
-        return res.status(403).json({ msg: "Invalid token" });
-    }
-};
+   }
+   catch(e)
+   {
+    res.json({
+        message:"toke error"
+    })
+   }
+}
+
+export {userMiddleware}
