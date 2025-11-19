@@ -14,7 +14,7 @@ export const Balance = () => {
     }
     axios.get(`${BACKEND_URL}/api/v1/account/balance`, {
         headers: {
-            token: token  // Assuming your backend expects a 'token' header
+            token: `Bearer ${token}`  // Assuming your backend expects a 'token' header
         }
     }).then(res => {
         setBalance(res.data.balance);
