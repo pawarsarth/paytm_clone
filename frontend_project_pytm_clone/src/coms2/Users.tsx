@@ -90,7 +90,7 @@ function User({ user }: { user: any }) {
 
       <div className="flex flex-col justify-center h-ful">
    <button
-   onClick={() => navigate(`/send?id=${user.firstName}`)}
+   onClick={() => navigate(`/send?name=${user.firstName}&id=${user._id}`)}
 // onClick={()=>{
 //     navigate('/send')
 // }}
