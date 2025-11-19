@@ -19,7 +19,7 @@ export function Signup() {
     const password = passwordRef.current.value;
 
     try {
-        const res = await axios.post(`${BACKEND_URL}/api/user/signup`, {
+         await axios.post(`${BACKEND_URL}/api/user/signup`, {
             firstName,
             lastName,
             username,
