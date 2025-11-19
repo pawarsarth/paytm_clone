@@ -13,12 +13,11 @@ export const Balance = () => {
             return;
         }
 
-        axios.get(`${BACKEND_URL}/api/v1/account/balance`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-        .then(res => {
+       axios.get(`${BACKEND_URL}/api/v1/account/balance`, {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+}) .then(res => {
             setBalance(res.data.balance);
             console.log("Balance:", res.data.balance);
         })

@@ -7,16 +7,15 @@ const accountRouter=express.Router();
 
 
 
-accountRouter.get('/balance',userMiddleware, async (req,res)=>{
+accountRouter.get('/balance', userMiddleware, async (req, res) => {
+    const acc = await Account.findOne({ userId: req.userId });
 
-    const acc=await Account.findOne({
-        userId:req.userId
-    })
-    res.json({
-        balance:acc.balance
-    })
+    if (!acc) {
+        return res.status(404).json({ message: "Account not found" });
+    }
 
-})
+    res.json({ balance: acc.balance });
+});
 
 accountRouter.post("/transfer",userMiddleware,async (req,res)=>{
 
