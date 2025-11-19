@@ -6,6 +6,7 @@ import { Signup } from './components/Signup'
 import Signin  from './components/Signin'
 import { Dashboard } from './components/Dashbaord'
 import { SendMoney } from './coms2/SendMoney'
+import LandingPage from './components/Landing'
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
+      <Route path='/' element={<LandingPage></LandingPage>}></Route>
       <Route path='/signup' element={<Signup></Signup>}></Route>
       <Route path='/signin' element={<Signin></Signin>}></Route>
       <Route path='/dashbaord' element={<Dashboard></Dashboard>}></Route>
