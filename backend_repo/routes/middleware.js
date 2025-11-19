@@ -19,4 +19,3 @@ export const userMiddleware = (req, res, next) => {
     }
 };
 
-export {userMiddleware}

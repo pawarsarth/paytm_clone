@@ -34,7 +34,7 @@ export const SendMoney = () => {
                 },
                    {
                     headers:{
-                    token 
+                  Authorization: `Bearer ${token}`,
                     
                 }
             })
