@@ -26,7 +26,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-center flex-grow px-8 py-12">
+      <div className="flex flex-col md:flex-row items-center justify-center grow px-8 py-12">
 
         {/* Left Side Text */}
         <div className="flex flex-col items-start max-w-xl mb-12 md:mb-0">
